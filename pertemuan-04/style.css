@@ -64,3 +64,16 @@
           margin: 8px 6px 0 0;
           border: 1px solid #003366;
         }
+        /* Footer */
+        footer {
+          background-color:#003366;
+          color: #ffffff;
+          text-align: center;
+          padding: 14px 20px;
+          margin-top: 20px;
+          border: 1px solid #00264d;
+        }
+
+        footer p {
+          margin:0;
+        }
