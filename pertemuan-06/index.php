@@ -2,13 +2,15 @@
 // P6: PHP dasar dan pemrograman sisi peladen
 // Bagian 1: Variabel dan konstanta
 $nim = "2622500020";
-$namaMahasiswa = "ReniWidiastuti";
+$namaMahasiswa = "Reni Widiastuti";
 $programStudi = "SI";
 $tahunAkademik = "2026/2027";
 $semester = 1;
 $ipk = 3.99;
 $statusAktif = true;
 $catatanTambahan = null;
+const NAMA_MATA_KULIAH = "Pemrograman Web Dasar";
+const PROFIL_GITHUB = "satpamal";
 ?>
 
 <doctype html>
@@ -28,7 +30,7 @@ $catatanTambahan = null;
         /*
         Komentar beberapa baris.
         Komentar ini tidak ditampilkan pada halaman.
-        */
+*/
         ?>
 
         <header>
