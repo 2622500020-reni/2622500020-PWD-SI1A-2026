@@ -5,7 +5,10 @@ $nim = "2622500020";
 $namaMahasiswa = "Reni Widiastuti";
 $programStudi = "SI";
 $tahunAkademik = "2026/2027";
-$semester = 1;
+$semester = 2;
+// Bagian 2: Operator
+$batasSemester = 8;
+$sisaSemester = $batasSemester - $semester;
 $ipk = 3.99;
 $statusAktif = true;
 $catatanTambahan = null;
@@ -73,126 +76,133 @@ const PROFIL_GITHUB = "satpamal";
 
                 <article>
                     <h3>Profil Singkat</h3>
-                    <p>Saya mahasiswa Program Studi Sistem Informasi</p>
 
-                    <h3>Target Belajar</h3>
+                    <section id="about">
+                        <h2>Tentang Saya</h2>
+                        <article>
+                            <h3>Profil Singkat</h3>
+                            <p>Sisa semester hingga batas: <?php echo $sisaSemester; ?></p>
 
-                    <ol>
-                        <li>Memahami struktur HTML5.</li>
-                        <li>Menyusun halaman web semantik.</li>
-                        <li>Memvalidasi dokumen HTML.</li>
-                    </ol>
-                </article>
-            </section>
-            <section id="contact">
-                <h2>Kontak</h2>
-                <p>
-                    Kunjungi
-                    <a target="_blank" href="https://github.com/<?= PROFIL_GITHUB ?>">profil GitHub saya</a>.
-                </p>
+                            <p>Saya mahasiswa Program Studi Sistem Informasi</p>
+
+                            <h3>Target Belajar</h3>
+
+                            <ol>
+                                <li>Memahami struktur HTML5.</li>
+                                <li>Menyusun halaman web semantik.</li>
+                                <li>Memvalidasi dokumen HTML.</li>
+                            </ol>
+                        </article>
+                    </section>
+                    <section id="contact">
+                        <h2>Kontak</h2>
+                        <p>
+                            Kunjungi
+                            <a target="_blank" href="https://github.com/<?= PROFIL_GITHUB ?>">profil GitHub saya</a>.
+                        </p>
 
 
-                <form id="contactfrom" action="index.html" method="get" novalidate>
-                    <div class="form-group">
-                        <label for="nama">Masukan Nama Lengkap</label><br />
+                        <form id="contactfrom" action="index.html" method="get" novalidate>
+                            <div class="form-group">
+                                <label for="nama">Masukan Nama Lengkap</label><br />
 
-                        <input
-                            class="input-form"
-                            type="text"
-                            id="nama"
-                            name="nama"
-                            placeholder="Masukkan nama lengkap"
-                            minlength="3"
-                            maxlength="50"
-                            required>
-                        />
-                    </div>
+                                <input
+                                    class="input-form"
+                                    type="text"
+                                    id="nama"
+                                    name="nama"
+                                    placeholder="Masukkan nama lengkap"
+                                    minlength="3"
+                                    maxlength="50"
+                                    required>
+                                />
+                            </div>
 
-                    <div class="form-group">
-                        <label for="email">Email</label><br />
+                            <div class="form-group">
+                                <label for="email">Email</label><br />
 
-                        <input class="input-form"
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="nama@email.com"
-                            required />
-                    </div>
+                                <input class="input-form"
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="nama@email.com"
+                                    required />
+                            </div>
 
-                    <div class="form-group">
-                        <label for="semester">Semester</label><br />
+                            <div class="form-group">
+                                <label for="semester">Semester</label><br />
 
-                        <input class="input-form"
-                            type="number"
-                            id="semester"
-                            name="semester"
-                            min="1"
-                            max="14"
-                            required />
-                    </div>
+                                <input class="input-form"
+                                    type="number"
+                                    id="semester"
+                                    name="semester"
+                                    min="1"
+                                    max="14"
+                                    required />
+                            </div>
 
-                    <div class="form-group">
-                        <label for="tanggal">Tanggal Kunjungan</label><br />
+                            <div class="form-group">
+                                <label for="tanggal">Tanggal Kunjungan</label><br />
 
-                        <input class="input-form"
-                            type="date"
-                            id="tanggal"
-                            name="tanggal"
-                            required />
-                    </div>
+                                <input class="input-form"
+                                    type="date"
+                                    id="tanggal"
+                                    name="tanggal"
+                                    required />
+                            </div>
 
-                    <div class="form-group">
-                        <p>Jenis Pesan</p>
+                            <div class="form-group">
+                                <p>Jenis Pesan</p>
 
-                        <input type="radio"
-                            id="pertanyaan"
-                            name="jenis_pesan"
-                            value="pertanyaan"
-                            required />
-                        <label for="pertanyaan">Pertanyaan</label>
+                                <input type="radio"
+                                    id="pertanyaan"
+                                    name="jenis_pesan"
+                                    value="pertanyaan"
+                                    required />
+                                <label for="pertanyaan">Pertanyaan</label>
 
-                        <input type="radio" id="saran" name="jenis_pesan"
-                            value="saran" />
-                        <label for="saran">Saran</label>
-                    </div>
+                                <input type="radio" id="saran" name="jenis_pesan"
+                                    value="saran" />
+                                <label for="saran">Saran</label>
+                            </div>
 
-                    <div class="form-group">
-                        <p>Topik yang Diminati</p>
+                            <div class="form-group">
+                                <p>Topik yang Diminati</p>
 
-                        <input type="checkbox" id="minat-html" name="minat" value="HTML" />
-                        <label for="minat-html">HTML</label>
+                                <input type="checkbox" id="minat-html" name="minat" value="HTML" />
+                                <label for="minat-html">HTML</label>
 
-                        <input type="checkbox" id="minat-css" name="minat" value="CSS" />
-                        <label for="minat-css">CSS</label>
-                    </div>
+                                <input type="checkbox" id="minat-css" name="minat" value="CSS" />
+                                <label for="minat-css">CSS</label>
+                            </div>
 
-                    <div class="form-group">
-                        <label for="prodi">Program Studi</label><br />
+                            <div class="form-group">
+                                <label for="prodi">Program Studi</label><br />
 
-                        <select class="input-form" id="prodi" name="prodi" required>
-                            <option value="">-- Pilih Program Studi --</option>
-                            <option value="SI">Sistem Informasi</option>
-                            <option value="TI">Teknik Informatika</option>
-                        </select>
-                    </div>
+                                <select class="input-form" id="prodi" name="prodi" required>
+                                    <option value="">-- Pilih Program Studi --</option>
+                                    <option value="SI">Sistem Informasi</option>
+                                    <option value="TI">Teknik Informatika</option>
+                                </select>
+                            </div>
 
-                    <div class="form-group">
-                        <label for="pesan">Pesan</label><br />
+                            <div class="form-group">
+                                <label for="pesan">Pesan</label><br />
 
-                        <textarea
-                            class="input-form"
-                            id="pesan"
-                            name="pesan"
-                            maxlength="300"
-                            placeholder="Tulis pesan Anda"
-                            required></textarea>
-                    </div>
+                                <textarea
+                                    class="input-form"
+                                    id="pesan"
+                                    name="pesan"
+                                    maxlength="300"
+                                    placeholder="Tulis pesan Anda"
+                                    required></textarea>
+                            </div>
 
-                    <button type="submit">Kirim</button>
-                    <button type="reset">Batal</button>
-                    <p id="formFeedback"></p>
-                </form>
-            </section>
+                            <button type="submit">Kirim</button>
+                            <button type="reset">Batal</button>
+                            <p id="formFeedback"></p>
+                        </form>
+                    </section>
         </main>
 
         <footer>
