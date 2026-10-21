@@ -159,7 +159,6 @@ const PROFIL_GITHUB = "satpamal";
                 <form id="contactForm" action="index.php" method="get" novalidate>
                     <div class="form-group">
                         <label for="nama">Masukan Nama Lengkap</label><br />
-
                         <input
                             class="input-form"
                             type="text"
@@ -169,7 +168,6 @@ const PROFIL_GITHUB = "satpamal";
                             minlength="3"
                             maxlength="50"
                             required>
-                        />
                     </div>
 
                     <div class="form-group">
