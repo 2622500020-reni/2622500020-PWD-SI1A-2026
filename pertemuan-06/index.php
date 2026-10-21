@@ -156,7 +156,7 @@ const PROFIL_GITHUB = "satpamal";
                     <a target="_blank" href="https://github.com/<?= PROFIL_GITHUB ?>">profil GitHub saya</a>.
                 </p>
 
-                <form id="contactfrom" action="index.html" method="get" novalidate>
+                <form id="contactForm" action="index.php" method="get" novalidate>
                     <div class="form-group">
                         <label for="nama">Masukan Nama Lengkap</label><br />
 
