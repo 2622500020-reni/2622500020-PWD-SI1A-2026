@@ -104,6 +104,8 @@ const PROFIL_GITHUB = "satpamal";
                     <p>Pemeriksaan rentang semester: <?php echo $statusSemester; ?></p>
                     <p>Saya mahasiswa Program Studi Sistem Informasi</p>
                     <p>Semester: <?php echo $semester . " (" . $keteranganSemester . ")"; ?></p>
+                    <p>IPK: <?php echo number_format($ipk, 2, ',', '.'); ?></p>
+
 
                     <h3>Target Belajar</h3>
 
