@@ -260,7 +260,8 @@ const PROFIL_GITHUB = "satpamal";
         </main>
 
         <footer>
-            <p>&copy; 2026 Reni Widiastuti (2622500020)</p>
+            <p>&copy; <?= date("Y") ?> <?php echo $namaMahasiswa; ?> [<?= $nim ?>]</p>
+
         </footer>
         <script src="script.js"></script>
     </body>
