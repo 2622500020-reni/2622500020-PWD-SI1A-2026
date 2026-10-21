@@ -105,7 +105,8 @@ const PROFIL_GITHUB = "satpamal";
                     <p>Saya mahasiswa Program Studi Sistem Informasi</p>
                     <p>Semester: <?php echo $semester . " (" . $keteranganSemester . ")"; ?></p>
                     <p>IPK: <?php echo number_format($ipk, 2, ',', '.'); ?></p>
-
+                    <p>Catatan tambahan: <?php echo $catatanTambahan === null ? "Belum ada" : $catatanTambahan;
+                                            ?></p>
 
                     <h3>Target Belajar</h3>
 
