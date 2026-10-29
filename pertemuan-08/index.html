@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Dapur Nusantara | Usaha Kuliner</title>
+
+  <!-- CSS digabung langsung di file HTML -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+    :root {
+      --green: #1d5b45;
+      --green-dark: #123d30;
+      --green-light: #e8f3ec;
+      --cream: #fbf8f1;
+      --ink: #25332c;
+      --muted: #6b786f;
+      --border: #e1e8e0;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #f0f3ef;
+      color: var(--ink);
+      font-family: 'DM Sans', Arial, sans-serif;
+      line-height: 1.6;
+    }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+
+    .website {
+      max-width: 1240px;
+      margin: 28px auto;
+      background: white;
+      border: 1px solid #dfe6df;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(23, 53, 37, .09);
+    }
+    .header {
+      min-height: 112px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 34px;
+      color: white;
+      background: linear-gradient(120deg, var(--green-dark), var(--green));
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: inherit;
+      text-decoration: none;
+    }
+    .brand-logo {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 17px;
+      background: rgba(255,255,255,.13);
+      font-size: 31px;
+      border: 1px solid rgba(255,255,255,.2);
+    }
+    .brand strong {
+      display: block;
+      font: 700 25px 'Playfair Display', Georgia, serif;
+    }
+    .brand small {
+      display: block;
+      color: #d8e9dd;
+      font-size: 12px;
+      margin-top: 2px;
+    }
+    .header-tagline {
+      color: #f4e6c8;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+    .page-layout {
+      display: grid;
+      grid-template-columns: 235px minmax(0, 1fr);
+      min-height: 650px;
+    }
+    .sidebar {
+      background: var(--cream);
+      border-right: 1px solid var(--border);
+      padding: 28px 18px;
+    }
+    .sidebar h2 {
+      margin: 0 12px 15px;
+      font-size: 11px;
+      color: #879187;
+      letter-spacing: 2px;
+    }
+    .sidebar ul { list-style: none; margin: 0; padding: 0; }
+    .sidebar li { margin: 7px 0; }
+    .nav-link {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #59665d;
+      text-align: left;
+      padding: 13px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: .2s ease;
+    }
+    .nav-link:hover {
+      background: #edf3ed;
+      color: var(--green);
+      transform: translateX(2px);
+    }
+    .nav-link.active {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 6px 15px #1d5b4525;
+    }
+    .sidebar-note {
+      margin: 48px 5px 0;
+      padding: 18px 14px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .sidebar-note span { font-size: 25px; }
+    .sidebar-note p { margin: 5px 0 0; }
+    .content { padding: 30px; min-width: 0; }
+    .page { display: none; animation: fadeUp .35s ease both; }
+    .page.active { display: block; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      border-radius: 16px;
+      background: var(--green-light);
+      min-height: 270px;
+      margin-bottom: 35px;
+    }
+    .hero-copy { padding: 30px; align-self: center; }
+    .eyebrow {
+      display: block;
+      color: #9a742e;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .hero h1, .page-title h1 {
+      font: 800 clamp(28px, 3vw, 42px)/1.15 'Playfair Display', Georgia, serif;
+      color: var(--green-dark);
+      margin: 8px 0 13px;
+    }
+    .hero p { color: #58695e; font-size: 14px; max-width: 430px; margin: 0 0 20px; }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      min-height: 270px;
+      max-height: 340px;
+      object-fit: cover;
+    }
+    .primary-button, .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9px;
+      padding: 11px 17px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 13px;
+      transition: .2s ease;
+    }
+    .primary-button { color: white; background: var(--green); }
+    .primary-button:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .secondary-button { background: white; color: var(--green); border-color: #cddbcf; }
+    .secondary-button:hover { background: var(--green-light); }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 12px;
+    }
+    .section-heading h2 {
+      margin: 4px 0 0;
+      font: 700 24px/1.25 'Playfair Display', Georgia, serif;
+    }
+    .intro { color: #647168; font-size: 14px; margin: 0 0 22px; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+      margin: 22px 0 35px;
+    }
+    .feature-card {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .feature-card span { font-size: 26px; }
+    .feature-card h3 { margin: 8px 0 4px; font-size: 14px; color: var(--green-dark); }
+    .feature-card p { margin: 0; color: var(--muted); font-size: 12px; }
+    .menu-heading { margin-top: 12px; margin-bottom: 15px; }
+    .pill {
+      border-radius: 99px;
+      padding: 5px 10px;
+      background: #fff5dc;
+      color: #8a6422;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; }
+    table { border-collapse: collapse; width: 100%; min-width: 490px; font-size: 13px; }
+    th { text-align: left; background: var(--green); color: white; font-weight: 600; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+    tbody tr:nth-child(even) { background: #f7faf7; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: #edf5ee; }
+    .small-note { color: #89938b; font-size: 11px; margin: 9px 0 0; }
+    .page-title { margin: 4px 0 25px; }
+    .page-title h1 { margin-bottom: 7px; }
+    .page-title p { margin: 0; color: var(--muted); font-size: 14px; }
+    .profile-card {
+      display: grid;
+      grid-template-columns: minmax(180px, .75fr) 1.25fr;
+      gap: 25px;
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: #fff;
+    }
+    .profile-photo { position: relative; align-self: start; }
+    .profile-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 12px;
+      background: var(--green-light);
+    }
+    .profile-photo span {
+      display: block;
+      margin-top: 8px;
+      color: #879187;
+      font-size: 10px;
+      text-align: center;
+    }
+    .profile-info h2 {
+      margin: 0 0 10px;
+      color: var(--green-dark);
+      font: 700 24px 'Playfair Display', Georgia, serif;
+    }
+    .profile-info .intro { margin-bottom: 15px; }
+    dl { margin: 0; }
+    dl div {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid #edf0eb;
+      font-size: 12px;
+    }
+    dt { color: #7b877d; }
+    dd { margin: 0; font-weight: 600; }
+    .edit-hint {
+      margin: 15px 0 0;
+      padding: 10px;
+      border-radius: 8px;
+      background: #fff6e4;
+      color: #80632b;
+      font-size: 11px;
+    }
+    .registration-form {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: #fff;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-grid label {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      color: #46564b;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .form-grid input:not([type="checkbox"]), .form-grid textarea, .form-grid select {
+      width: 100%;
+      border: 1px solid #dce5dc;
+      border-radius: 8px;
+      padding: 11px 12px;
+      outline: none;
+      background: #fbfcfa;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 400;
+      transition: border .2s, box-shadow .2s;
+    }
+    .form-grid input:focus, .form-grid textarea:focus, .form-grid select:focus {
+      border-color: #5e9b78;
+      box-shadow: 0 0 0 3px #1d5b4514;
+    }
+    .full-width { grid-column: 1 / -1; }
+    .form-grid .checkbox-label {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-weight: 500;
+    }
+    .checkbox-label input { accent-color: var(--green); }
+    .form-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .form-message { margin: 12px 0 0; color: var(--green); font-weight: 700; font-size: 13px; }
+    .footer {
+      padding: 20px 25px;
+      background: var(--green-dark);
+      color: #e5eee7;
+      text-align: center;
+    }
+    .footer p { margin: 0; font-size: 12px; }
+    .footer small { display: block; color: #a9c3b1; font-size: 10px; margin-top: 4px; }
+
+    @media (max-width: 760px) {
+      .website { margin: 0; border-radius: 0; border: 0; }
+      .header { padding: 20px; align-items: flex-start; }
+      .brand strong { font-size: 20px; }
+      .header-tagline { display: none; }
+      .page-layout { grid-template-columns: 1fr; }
+      .sidebar { padding: 13px 15px; border-right: 0; border-bottom: 1px solid var(--border); }
+      .sidebar h2, .sidebar-note { display: none; }
+      .sidebar ul { display: flex; gap: 6px; }
+      .sidebar li { flex: 1; margin: 0; }
+      .nav-link { text-align: center; padding: 10px 5px; font-size: 12px; }
+      .content { padding: 18px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { padding: 24px; }
+      .hero img { min-height: 190px; max-height: 220px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .profile-card { grid-template-columns: 1fr; }
+      .profile-photo { max-width: 260px; margin: 0 auto; }
+      .form-grid { grid-template-columns: 1fr; }
+      .full-width { grid-column: auto; }
+      dl div { grid-template-columns: 115px 1fr; }
+      .footer { padding: 18px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="website">
+    <!-- HEADER -->
+    <header class="header">
+      <a class="brand" href="#" aria-label="Dapur Nusantara">
+        <span class="brand-logo">🍲</span>
+        <span>
+          <strong>Dapur Nusantara</strong>
+          <small>Rasa rumahan, kualitas pilihan</small>
+        </span>
+      </a>
+      <div class="header-tagline">Hangat • Lezat • Bersahabat</div>
+    </header>
+
+    <div class="page-layout">
+      <!-- NAVIGASI: menggunakan tag list ul dan li -->
+      <nav class="sidebar" aria-label="Navigasi utama">
+        <h2>MENU</h2>
+        <ul>
+          <li><button class="nav-link active" data-page="home">🏠 Home</button></li>
+          <li><button class="nav-link" data-page="profile">👤 Profile</button></li>
+          <li><button class="nav-link" data-page="bukutamu">📝 Buku Tamu</button></li>
+        </ul>
+        <div class="sidebar-note">
+          <span>🍃</span>
+          <p>Masakan lezat, dibuat dengan sepenuh hati.</p>
+        </div>
+      </nav>
+
+      <!-- KONTEN WEBSITE -->
+      <main class="content">
+        <!-- HALAMAN HOME -->
+        <section class="page active" id="home">
+          <div class="hero">
+            <div class="hero-copy">
+              <span class="eyebrow">SELAMAT DATANG DI</span>
+              <h1>Dapur Nusantara</h1>
+              <p>Nikmati hidangan khas Indonesia dengan rasa rumahan, bahan pilihan, dan harga yang bersahabat.</p>
+              <button class="primary-button" data-go="bukutamu">Isi Buku Tamu</button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85" alt="Hidangan makanan yang tersaji">
+          </div>
+
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">CERITA KAMI</span>
+              <h2>Lezatnya masakan, hangatnya kebersamaan</h2>
+            </div>
+          </div>
+          <p class="intro">Dapur Nusantara adalah contoh usaha kuliner yang menyajikan aneka makanan bercita rasa Indonesia. Kami mengutamakan kebersihan, kualitas bahan, pelayanan ramah, serta harga yang dapat dijangkau oleh berbagai kalangan. Menu tersedia untuk makan di tempat maupun dibawa pulang.</p>
+
+          <div class="feature-grid">
+            <article class="feature-card"><span>🥬</span><h3>Bahan Pilihan</h3><p>Mengutamakan bahan segar dan pengolahan yang bersih.</p></article>
+            <article class="feature-card"><span>👩‍🍳</span><h3>Dibuat Harian</h3><p>Hidangan disiapkan dengan perhatian pada rasa dan kualitas.</p></article>
+            <article class="feature-card"><span>💛</span><h3>Harga Bersahabat</h3><p>Pilihan menu lezat dengan harga yang ramah di kantong.</p></article>
+          </div>
+
+          <div class="section-heading menu-heading">
+            <div><span class="eyebrow">MENU FAVORIT</span><h2>Daftar menu dan harga</h2></div>
+            <span class="pill">Menu pilihan</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>No.</th><th>Nama Menu</th><th>Kategori</th><th>Harga</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Nasi Ayam Bakar</td><td>Makanan utama</td><td>Rp18.000</td></tr>
+                <tr><td>2</td><td>Nasi Goreng Spesial</td><td>Makanan utama</td><td>Rp15.000</td></tr>
+                <tr><td>3</td><td>Mie Goreng Nusantara</td><td>Makanan utama</td><td>Rp13.000</td></tr>
+                <tr><td>4</td><td>Es Teh Manis</td><td>Minuman</td><td>Rp5.000</td></tr>
+                <tr><td>5</td><td>Jus Jeruk</td><td>Minuman</td><td>Rp8.000</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small-note">*Harga di atas merupakan contoh untuk keperluan tugas.</p>
+        </section>
+
+        <!-- HALAMAN PROFILE -->
+        <section class="page" id="profile">
+          <div class="page-title">
+            <span class="eyebrow">TENTANG PEMILIK</span>
+            <h1>Profile Pemilik</h1>
+            <p>Perkenalan singkat pemilik website usaha.</p>
+          </div>
+          <div class="profile-card">
+            <div class="profile-photo">
+              <img src="img/foto-profil.JPEG" alt="Contoh foto profil pemilik">
+              <span>Ganti foto ini dengan foto Anda</span>
+            </div>
+            <div class="profile-info">
+              <h2>Biodata Pemilik</h2>
+              <p class="intro">Halo! Saya adalah pemilik website Dapur Nusantara. Website ini dibuat sebagai latihan membangun website bisnis menggunakan HTML, CSS, dan JavaScript.</p>
+              <dl>
+                <div><dt>Nama</dt><dd>Reni Widiastuti</dd></div>
+                <div><dt>Tempat, Tgl Lahir</dt><dd>Muntok, 21 Januari 2007</dd></div>
+                <div><dt>Agama</dt><dd>Islam</dd></div>
+                <div><dt>Alamat</dt><dd>Bangka Barat, Muntok</dd></div>
+              </dl>
+              <p class="edit-hint">Ubah data dalam tanda kurung siku dan ganti foto contoh dengan foto Anda sendiri.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- HALAMAN BUKU TAMU -->
+        <section class="page" id="bukutamu">
+          <div class="page-title">
+            <span class="eyebrow">BUKU TAMU</span>
+            <h1>Buku Tamu</h1>
+            <p>Silakan isi buku tamu Dapur Nusantara dengan data dan pesan Anda.</p>
+          </div>
+
+          <form id="guestbookForm" class="registration-form">
+            <div class="form-grid">
+              <label>Nama
+                <input type="text" name="nama" placeholder="Masukkan nama Anda" required>
+              </label>
+
+              <label>Email
+                <input type="email" name="email" placeholder="nama@email.com" required>
+              </label>
+
+              <label>Nohp
+                <input type="tel" name="nohp" placeholder="Masukkan nomor handphone" required>
+              </label>
+
+              <label>Bidang
+                <select name="bidang" required>
+                  <option value="">Pilih bidang</option>
+                  <option>Kuliner</option>
+                  <option>Pendidikan</option>
+                  <option>Teknologi</option>
+                  <option>Bisnis</option>
+                  <option>Lainnya</option>
+                </select>
+              </label>
+
+              <label class="full-width">Pesan
+                <textarea name="pesan" rows="4" placeholder="Tuliskan pesan Anda..." required></textarea>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button class="primary-button" type="submit">Kirim Buku Tamu</button>
+              <button class="secondary-button" type="reset">Reset Form</button>
+            </div>
+
+            <p id="guestbookMessage" class="form-message" role="status"></p>
+            <p class="small-note">Form ini merupakan demonstrasi front-end. Data belum disimpan ke database.</p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>© <span id="year"></span> | NIM: 2622500020 | Reny Widiastuti | S1IA | UTS Pemrograman Web Dasar</p>
+      <small>Dibuat untuk tugas pembelajaran HTML, CSS, dan JavaScript.</small>
+    </footer>
+  </div>
+
+  <!-- JavaScript digabung langsung di file HTML -->
+  <script>
+    // Mengganti halaman berdasarkan menu navigasi yang diklik.
+    const navLinks = document.querySelectorAll(".nav-link");
+    const pages = document.querySelectorAll(".page");
+
+    function showPage(pageId) {
+      pages.forEach((page) => {
+        page.classList.toggle("active", page.id === pageId);
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.dataset.page === pageId);
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => showPage(link.dataset.page));
+    });
+
+    // Tombol pada halaman Home menuju halaman Registrasi.
+    document.querySelectorAll("[data-go]").forEach((button) => {
+      button.addEventListener("click", () => showPage(button.dataset.go));
+    });
+
+    // Menampilkan tahun secara otomatis di footer.
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Demo buku tamu: memeriksa input lalu menampilkan pesan tanpa server.
+    const guestbookForm = document.getElementById("guestbookForm");
+    const guestbookMessage = document.getElementById("guestbookMessage");
+
+    guestbookForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(guestbookForm);
+      const guestName = formData.get("nama").trim();
+
+      guestbookMessage.textContent =
+        `Terima kasih, ${guestName}! Pesan Anda berhasil diperiksa (demo).`;
+      guestbookForm.reset();
+    });
+
+    guestbookForm.addEventListener("reset", () => {
+      guestbookMessage.textContent = "";
+    });
+  </script>
+</body>
+</html>
