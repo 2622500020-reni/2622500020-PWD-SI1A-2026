@@ -55,18 +55,10 @@ const PROFIL_GITHUB = "satpamal";
     </head>
 
     <body>
-        <?php
-        // Komentar satu baris.
-        print "Keluaran menggunakan print.";
-        /*
-        Komentar beberapa baris.
-        Komentar ini tidak ditampilkan pada halaman.
-*/
-        ?>
 
         <header>
             <div class="header-top"
-                <h1>-Profil Mahasiswa</h1>
+                <h1>Profil Mahasiswa</h1>
 
                 <button
                     class="nav-toggle"

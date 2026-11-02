@@ -55,18 +55,10 @@ const PROFIL_GITHUB = "satpamal";
     </head>
 
     <body>
-        <?php
-        // Komentar satu baris.
-        print "Keluaran menggunakan print.";
-        /*
-        Komentar beberapa baris.
-        Komentar ini tidak ditampilkan pada halaman.
-*/
-        ?>
 
         <header>
             <div class="header-top"
-                <h1>-Profil Mahasiswa</h1>
+                <h1>Profil Mahasiswa</h1>
 
                 <button
                     class="nav-toggle"
@@ -161,7 +153,7 @@ const PROFIL_GITHUB = "satpamal";
                     <a target="_blank" href="https://github.com/<?= PROFIL_GITHUB ?>">profil GitHub saya</a>.
                 </p>
 
-                <form id="contactForm" action="index.php" method="get" novalidate>
+                <form id="contactForm" action="indexGet.php" method="get" novalidate>
                     <div class="form-group">
                         <label for="nama">Masukan Nama Lengkap</label><br />
                         <input
