@@ -1,5 +1,5 @@
 const navToggle = document.getElementById("navToggle");
-const navMenu = document.getElementById("navMenu");
+const navMenu = document.getElementById("navMenu");6
 navToggle.addEventListener("click", () => {
   const isOpen = navMenu.classList.toggle("nav-open");
   navToggle.setAttribute("aria-expanded", isOpen);
@@ -48,7 +48,10 @@ contactForm.addEventListener("submit", (event) => {
     formFeedback.textContent = "Pilih jenis pesan.";
     return;
   }
-  const topikDipilih = document.querySelectorAll('input[name="minat"]:checked');
+  const topikDipilih = document.querySelectorAll(
+    'input[name="minat"]:checked,input[name="minat[]"]:checked',
+  );
+
   if (topikDipilih.length === 0) {
     formFeedback.textContent = "Pilih minimal satu topik yang diminati.";
     return;
