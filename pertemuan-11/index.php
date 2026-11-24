@@ -1,10 +1,13 @@
 <?php
 #dimatikan pada P11
-session_start();
+#session_start();
 
 require_once("fungsi.php");
 #P11
 require_once("koneksi.php");
+
+// P11: Mengambil data kontak dari basis data menggunakan operasi READ.
+$sql = "SELECT * FROM tbl_kontak_2622500020";
 
 // P7: penggunaan POST
 $nama = trim((string) ($_POST['nama'] ?? ''));
