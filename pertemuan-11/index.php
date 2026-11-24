@@ -1,5 +1,10 @@
 <?php
+#dimatikan pada P11
 session_start();
+
+require_once("fungsi.php");
+#P11
+require_once("koneksi.php");
 
 // P7: penggunaan POST
 $nama = trim((string) ($_POST['nama'] ?? ''));
