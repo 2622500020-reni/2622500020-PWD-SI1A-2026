@@ -35,4 +35,10 @@
 - Pemeriksaan keberhasilan kueri ditambahkan pada `index.php` setelah pemanggilan `mysqli_query($koneksi, $sql);` menggunakan kondisi `if (!$hasil)` yang menghentikan proses dan menampilkan pesan `"Kueri SELECT gagal dijalankan."` apabila hasil bernilai `false`[span_2].
 - Pengujian kegagalan dilakukan dengan mengubah sementara nama tabel pada `$sql` menjadi tabel yang tidak tersedia (`tbl_tabel_tidak_tersedia`), lalu halaman diakses melalui `http://localhost/pwd/2622500020-PWD-SI1A-2026/pertemuan-11` dan berhasil menampilkan pesan `"Kueri SELECT gagal dijalankan."`
 - Pengujian keberhasilan dilakukan dengan mengembalikan nama tabel pada `$sql` menjadi `tbl_kontak_2622500020`, dan halaman kembali berjalan normal tanpa pesan gagal menjalankan kueri.
+
+## 7. Mengambil Hasil Kueri Menggunakan mysqli_fetch_assoc() (Bagian F.5)
+
+- Pengambilan hasil kueri ditambahkan pada `index.php` setelah pemeriksaan keberhasilan kueri menggunakan larik `$dataKontak = [];` dan perulangan `while ($baris = mysqli_fetch_assoc($hasil))`.
+- Fungsi `mysqli_fetch_assoc($hasil)` mengambil setiap baris data dalam bentuk larik asosiatif berdasarkan nama kolom tabel, lalu memasukkannya ke dalam `$dataKontak[]` selama baris data masih tersedia.
+- Pengamatan isi larik `$dataKontak` dilakukan pada tahap pengujian berikutnya.
 -
