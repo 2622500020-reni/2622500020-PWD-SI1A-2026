@@ -23,4 +23,9 @@
 
 - **E.3 (Ketersediaan Koneksi):** `index.php` memuat `koneksi.php` sebelum kode yang menggunakan variabel `$koneksi`, sedangkan penanganan kegagalan koneksi tetap ditangani di `koneksi.php`.
 - **E.4 (Uji Integrasi di Peramban):** \_[Isi hasil tampilan halaman utama di browser setelah Apache & MySQL Laragon dijalankan dan `$database` dipastikan `db_pwd_2622500020`].
--
+
+## 5. Operasi READ: Kueri SELECT dan Eksekusi mysqli_query() (Bagian F.2 - F.3)
+
+- Kueri SELECT ditentukan pada index.php setelah pemanggilan koneksi.php menggunakan $sql = "SELECT * FROM tbl_kontak_2622500020";.
+- Kueri dijalankan menggunakan fungsi mysqli_query($koneksi, $sql); dengan memanfaatkan variabel $koneksi dari koneksi.php dan variabel $sql, lalu hasilnya ditampung pada variabel $hasil.
+- Catatan editor: sempat muncul peringatan statis Intelephense (Undefined variable '$koneksi') pada editor sebelum dijalankan, namun pengujian di peramban tetap berjalan normal tanpa pesan gagal koneksi.
