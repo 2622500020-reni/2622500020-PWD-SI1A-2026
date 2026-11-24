@@ -75,7 +75,7 @@ if (!is_array($minat)) {
 }
 // Bagian 1: Variabel dan konstanta
 $nim = "2611500023";
-$namaMahasiswa = "Aidil Fitra";
+$namaMahasiswa = "Reni Widiastuti";
 $programStudi = "SI";
 $tahunAkademik = "2026/2027";
 $semester = 2;
