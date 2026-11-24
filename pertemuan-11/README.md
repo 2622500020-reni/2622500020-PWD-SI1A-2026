@@ -26,6 +26,13 @@
 
 ## 5. Operasi READ: Kueri SELECT dan Eksekusi mysqli_query() (Bagian F.2 - F.3)
 
-- Kueri SELECT ditentukan pada index.php setelah pemanggilan koneksi.php menggunakan $sql = "SELECT * FROM tbl_kontak_2622500020";.
+- Kueri SELECT ditentukan pada index.php setelah pemanggilan koneksi.php menggunakan $sql = "SELECT \* FROM tbl_kontak_2622500020";.
 - Kueri dijalankan menggunakan fungsi mysqli_query($koneksi, $sql); dengan memanfaatkan variabel $koneksi dari koneksi.php dan variabel $sql, lalu hasilnya ditampung pada variabel $hasil.
-- Catatan editor: sempat muncul peringatan statis Intelephense (Undefined variable '$koneksi') pada editor sebelum dijalankan, namun pengujian di peramban tetap berjalan normal tanpa pesan gagal koneksi.
+- Catatan : sempat muncul peringatan statis Intelephense (Undefined variable '$koneksi') pada editor sebelum dijalankan, namun pengujian di peramban tetap berjalan normal tanpa pesan gagal koneksi.
+
+## 6. Memeriksa dan Menguji Keberhasilan Kueri SELECT (Bagian F.4)
+
+- Pemeriksaan keberhasilan kueri ditambahkan pada `index.php` setelah pemanggilan `mysqli_query($koneksi, $sql);` menggunakan kondisi `if (!$hasil)` yang menghentikan proses dan menampilkan pesan `"Kueri SELECT gagal dijalankan."` apabila hasil bernilai `false`[span_2].
+- Pengujian kegagalan dilakukan dengan mengubah sementara nama tabel pada `$sql` menjadi tabel yang tidak tersedia (`tbl_tabel_tidak_tersedia`), lalu halaman diakses melalui `http://localhost/pwd/2622500020-PWD-SI1A-2026/pertemuan-11` dan berhasil menampilkan pesan `"Kueri SELECT gagal dijalankan."`
+- Pengujian keberhasilan dilakukan dengan mengembalikan nama tabel pada `$sql` menjadi `tbl_kontak_2622500020`, dan halaman kembali berjalan normal tanpa pesan gagal menjalankan kueri.
+-

@@ -10,6 +10,11 @@ require_once("koneksi.php");
 $sql = "SELECT * FROM tbl_kontak_2622500020";
 $hasil = mysqli_query($koneksi, $sql);
 
+// P11: Memeriksa keberhasilan kueri SELECT.
+if (!$hasil) {
+die("Kueri SELECT gagal dijalankan.");
+}
+
 // P7: penggunaan POST
 $nama = trim((string) ($_POST['nama'] ?? ''));
 $email = trim((string) ($_POST['email'] ?? ''));
