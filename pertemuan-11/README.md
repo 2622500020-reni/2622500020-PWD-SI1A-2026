@@ -43,8 +43,13 @@
 - Pengamatan isi larik `$dataKontak` dilakukan pada tahap pengujian berikutnya.
 
 ## 8. Menguji Penyajian Data dan Kondisi Ketika Tidak Ada Data Kontak
+
 - Data kontak dari tabel `tbl_kontak_2622500020` berhasil diambil dan ditampilkan pada bagian **Data Kontak dari Basis Data** melalui perulangan `foreach` dengan kondisi `if-else` pada `index.php`.
 - Pengujian kondisi tanpa data dilakukan dengan mengosongkan data pada tabel `tbl_kontak_2622500020` tanpa menghapus struktur tabel, lalu mengakses halaman melalui `http://localhost/pwd/2622500020-PWD-SI1A-2026/pertemuan-11/` untuk memastikan pesan `"Belum ada data kontak yang tersimpan."` tampil dengan benar.
 - Setelah pengujian selesai, data kontak dikembalikan kembali sehingga seluruh data tampil normal di halaman.
 - Hasil ekspor struktur tabel dan data kontak disimpan pada berkas SQL di dalam direktori `pertemuan-11/`.
--
+
+## Catatan Peringatan dan Penyesuaian Kode
+
+- Pada `index.php`, sempat muncul peringatan `Undefined variable '$koneksi'. intelephense(P1008)` pada pemanggilan `mysqli_query($koneksi, $sql)` karena `$koneksi` berasal dari berkas eksternal (`koneksi.php`) yang dimuat melalui `require_once("koneksi.php")`. Peringatan tersebut berasal dari analisis statis ekstensi dan tidak menghambat eksekusi skrip PHP saat halaman dibuka di peramban.
+- Pada `fungsi.php`, sempat muncul saran/peringatan tipe parameter (`intelephense(P1132)`) pada parameter `$teks` di fungsi `bersihkan()` dan `tebal()`, sehingga dilakukan penyesuaian tipe parameter agar selaras dengan nilai masukan yang diterima.
