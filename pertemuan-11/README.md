@@ -41,4 +41,10 @@
 - Pengambilan hasil kueri ditambahkan pada `index.php` setelah pemeriksaan keberhasilan kueri menggunakan larik `$dataKontak = [];` dan perulangan `while ($baris = mysqli_fetch_assoc($hasil))`.
 - Fungsi `mysqli_fetch_assoc($hasil)` mengambil setiap baris data dalam bentuk larik asosiatif berdasarkan nama kolom tabel, lalu memasukkannya ke dalam `$dataKontak[]` selama baris data masih tersedia.
 - Pengamatan isi larik `$dataKontak` dilakukan pada tahap pengujian berikutnya.
+
+## 8. Menguji Penyajian Data dan Kondisi Ketika Tidak Ada Data Kontak
+- Data kontak dari tabel `tbl_kontak_2622500020` berhasil diambil dan ditampilkan pada bagian **Data Kontak dari Basis Data** melalui perulangan `foreach` dengan kondisi `if-else` pada `index.php`.
+- Pengujian kondisi tanpa data dilakukan dengan mengosongkan data pada tabel `tbl_kontak_2622500020` tanpa menghapus struktur tabel, lalu mengakses halaman melalui `http://localhost/pwd/2622500020-PWD-SI1A-2026/pertemuan-11/` untuk memastikan pesan `"Belum ada data kontak yang tersimpan."` tampil dengan benar.
+- Setelah pengujian selesai, data kontak dikembalikan kembali sehingga seluruh data tampil normal di halaman.
+- Hasil ekspor struktur tabel dan data kontak disimpan pada berkas SQL di dalam direktori `pertemuan-11/`.
 -
