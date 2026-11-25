@@ -22,9 +22,9 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
 }
 
 // P11: Pengujian sementara hasil pengambilan data.
-echo "<pre>";
-var_dump($dataKontak);
-echo "</pre>";
+// echo "<pre>";
+// var_dump($dataKontak);
+// echo "</pre>";
 
 // P7: penggunaan POST
 $nama = trim((string) ($_POST['nama'] ?? ''));
@@ -159,7 +159,7 @@ $pesan = $_SESSION['pesan'] ?? '';
 $ipk = 3.75;
 
 const NAMA_MATA_KULIAH = "Pemrograman Web Dasar";
-const PROFIL_GITHUB = "2611500023-aidilfitra";
+const PROFIL_GITHUB = "2622500020-reni";
 ?>
 
 <!doctype html>
@@ -206,63 +206,63 @@ const PROFIL_GITHUB = "2611500023-aidilfitra";
             </p>
             <img
                 src="img/foto-profil.jpg"
-                alt="Foto profil Aidil Fitra"
+                alt="Foto profil Reni Widiastuti"
                 widht="150"
                 height="200" />
         </section>
 
         <section id="about">
             <h2>Tentang Saya</h2>
-            <article>
-                <h3>Profil Singkat</h3>
-                <p>Program Studi: <?php echo $namaProdi . " (" . $programStudi . ")"; ?></p>
-                <p>Status mahasiswa: <?php echo $statusAktif ? "Aktif" : "Tidak aktif"; ?></p>
-                <p>Fokus program studi: <?php echo $fokusProgramStudi; ?></p>
-                <p>Sisa semester hingga batas: <?php echo $sisaSemester; ?></p>
-                <p>Semester: <?php echo $semester . " (" . $keteranganSemester . ")"; ?></p>
-                <p>Pemeriksaan rentang semester: <?php echo $statusSemester; ?></p>
-                <p>IPK: <?php echo number_format($ipk, 2, ',', '.'); ?></p>
-                <p>Catatan tambahan: <?php echo $catatanTambahan === null ? "Belum ada" : $catatanTambahan;
-                                        ?></p>
-                <p>Saya mahasiswa Program Studi Teknik Informatika</p>
 
-                <h3>Target Belajar (Perulangan for)</h3>
-                <ol>
-                    <?php
-                    // Perulangan for tanpa array; materi larik dibahas pada P9.
-                    for ($i = 1; $i <= 5; $i++) {
-                        echo "<li>Target belajar ke-" . $i . ": ";
-                        switch ($i) {
-                            case 1:
-                                echo "Memahami sintaks dasar PHP.";
-                                break;
-                            case 2:
-                                echo "Menggunakan variabel dan konstanta.";
-                                break;
-                            case 3:
-                                echo "Menerapkan operator dan percabangan.";
-                                break;
-                            case 4:
-                                echo "Menggunakan perulangan for dan while.";
-                                break;
-                            default:
-                                echo "Belum dipetakan";
-                                break;
-                        }
-                        echo "</li>";
+            <h3>Profil Singkat</h3>
+            <p>Program Studi: <?php echo $namaProdi . " (" . $programStudi . ")"; ?></p>
+            <p>Status mahasiswa: <?php echo $statusAktif ? "Aktif" : "Tidak aktif"; ?></p>
+            <p>Fokus program studi: <?php echo $fokusProgramStudi; ?></p>
+            <p>Sisa semester hingga batas: <?php echo $sisaSemester; ?></p>
+            <p>Semester: <?php echo $semester . " (" . $keteranganSemester . ")"; ?></p>
+            <p>Pemeriksaan rentang semester: <?php echo $statusSemester; ?></p>
+            <p>IPK: <?php echo number_format($ipk, 2, ',', '.'); ?></p>
+            <p>Catatan tambahan: <?php echo $catatanTambahan === null ? "Belum ada" : $catatanTambahan;
+                                    ?></p>
+            <p>Saya mahasiswa Program Studi Sistem Informasi</p>
+
+            <h3>Target Belajar (Perulangan for)</h3>
+            <ol>
+                <?php
+                // Perulangan for tanpa array; materi larik dibahas pada P9.
+                for ($i = 1; $i <= 5; $i++) {
+                    echo "<li>Target belajar ke-" . $i . ": ";
+                    switch ($i) {
+                        case 1:
+                            echo "Memahami sintaks dasar PHP.";
+                            break;
+                        case 2:
+                            echo "Menggunakan variabel dan konstanta.";
+                            break;
+                        case 3:
+                            echo "Menerapkan operator dan percabangan.";
+                            break;
+                        case 4:
+                            echo "Menggunakan perulangan for dan while.";
+                            break;
+                        default:
+                            echo "Belum dipetakan";
+                            break;
                     }
-                    ?>
-                </ol>
-                <h3>Semester (Perulangan while):</h3>
-                <ol>
-                    <?php
-                    $nomorSemester = 1;
-                    while ($nomorSemester <= 3) {
-                        echo "<li>Semester " . $nomorSemester . "</li>";
-                        $nomorSemester++; // operator penugasan
-                    }
-                    ?>
-                </ol>
+                    echo "</li>";
+                }
+                ?>
+            </ol>
+            <h3>Semester (Perulangan while):</h3>
+            <ol>
+                <?php
+                $nomorSemester = 1;
+                while ($nomorSemester <= 3) {
+                    echo "<li>Semester " . $nomorSemester . "</li>";
+                    $nomorSemester++; // operator penugasan
+                }
+                ?>
+            </ol>
             </article>
         </section>
         <section id="contact">
@@ -366,7 +366,7 @@ const PROFIL_GITHUB = "2611500023-aidilfitra";
                 </div>
 
                 <button type="submit">Kirim</button>
-                <button type="reset">Batal</button>
+                <button type="re/9et">Batal</button>
                 <p id="formFeedback"></p>
             </form>
 
@@ -406,6 +406,28 @@ const PROFIL_GITHUB = "2611500023-aidilfitra";
                 <p><?= nl2br(htmlspecialchars($pesan, ENT_QUOTES, 'UTF-8')) ?></p>
             <?php endif; ?>
         </section>
+        <article id="hasilKontak" class="submission-result" aria-live="polite">
+            <h3>Data Kontak dari Basis Data</h3>
+            <?php if (count($dataKontak) > 0): ?>
+                <!-- Perulangan foreach untuk menampilkan data kontak. -->
+                <?php foreach ($dataKontak as $data): ?>
+                    <section>
+                        <!-- Data kontak ditampilkan di sini. -->
+                        <p><strong>ID:</strong> <?= bersihkan($data["id"]); ?></p>
+                        <p><strong>Nama:</strong> <?= bersihkan($data["nama"]); ?></p>
+                        <p><strong>Email:</strong> <?= bersihkan($data["email"]); ?></p>
+                        <p><strong>Semester:</strong> <?= bersihkan($data["semester"]); ?></p>
+                        <p><strong>Tanggal Kunjungan:</strong> <?= bersihkan($data["tanggal"]); ?></p>
+                        <p><strong>Jenis Pesan:</strong> <?= bersihkan($data["jenis_pesan"]); ?></p>
+                        <p><strong>Topik yang Diminati:</strong> <?= bersihkan($data["minat"]); ?></p>
+                        <p><strong>Program Studi:</strong> <?= bersihkan($data["prodi"]); ?></p>
+                        <p><strong>Pesan:</strong> <?= nl2br(bersihkan($data["pesan"])); ?></p>
+                    </section>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Belum ada data kontak yang tersimpan.</p>
+            <?php endif; ?>
+        </article>
     </main>
 
     <footer>
